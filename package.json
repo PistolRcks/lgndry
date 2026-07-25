@@ -1,11 +1,11 @@
 {
   "name": "lgndry",
   "version": "0.0.0",
-  "main": "dist/electron/app.js",
+  "main": "dist/elec/main.js",
   "scripts": {
     "ng": "ng",
     "start:ng": "ng serve",
-    "start:elec": "electron dist/elec/app.js",
+    "start:elec": "electron dist/elec/main.js",
     "build:ng": "ng build --base-href ./",
     "build:elec": "tsc --project tsconfig.elec.json",
     "build": "npm run build:ng && npm run build:elec",
