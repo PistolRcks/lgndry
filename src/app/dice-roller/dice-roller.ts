@@ -70,6 +70,7 @@ class TwentySidedDie extends Die {
     // if there are any remaining disadvantages, two d20s are roll()'d, then the min of the two is set as currentValue
     //      remaining disadvantages past the first each subract 2 to `modFromAdvantages`
     // returns which dice were rolled, and which was chosen
+    // TODO: pull grouping functionality out of individual dice
     override roll(advantages: number = 0, disadvantages: number = 0): string {
         const totalAdv = advantages - disadvantages;
         let values: number[] = [];
@@ -96,12 +97,32 @@ class TwentySidedDie extends Die {
     }
 }
 
+// determines a die which only modifies a roll (i.e. one whose value is always the same)
+class ModifierDie extends Die {
+    value: number
+
+    constructor(value: number) {
+        super(1);
+        this.value = value;
+        this.currentValue = value;
+    }
+
+    // returns the value of the modifier
+    override roll(): string {
+        return String(this.value);
+    }
+}
+
 class DiceFactory {
     static createDie(sides: number): Die {
         if (sides == 20) {
             return new TwentySidedDie();
         };
         return new Die(sides);
+    }
+
+    static createModifier(value: number): ModifierDie {
+        return new ModifierDie(value);
     }
 }
 
@@ -117,10 +138,10 @@ export class DiceRoller {
         DiceFactory.createDie(20),
         DiceFactory.createDie(20),
         DiceFactory.createDie(20),
-        DiceFactory.createDie(20),
+        DiceFactory.createModifier(15),
     ]
 
-    diceOutput = signal("0");
+    diceOutput = signal("No dice rolled (yet)");
 
     dieOrDice = signal(this.dice.length > 1 ? "Dice" : "Die")
 
@@ -143,7 +164,11 @@ export class DiceRoller {
                     result += ", Fumble";
                 }
             }
-            output += `${result} (d${die.sides})`;
+            output += result;
+
+            if (!(die instanceof ModifierDie)) {
+                output += ` (d${die.sides})`;
+            }
             first = false;
         });
 
