@@ -10,7 +10,7 @@ function createWindow() {
     });
 
     // and load the index.html of the app.
-    mainWindow.loadFile(path.join(__dirname, '../../dist/lgndry/index.html'));
+    mainWindow.loadFile(path.join(__dirname, '../../dist/lgndry/browser/index.html'));
 
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
