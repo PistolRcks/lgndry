@@ -72,16 +72,4 @@ export class TwentySidedDie extends Die {
 
         return String(this.lastRoll) + critState;
     }
-
-    // rolls die (with advantages/disadvantages)
-    // advantages and disadvantages cancel each other out
-    // if there are any remaining advantages, two d20s are roll()'d, then the max of the two is set as lastRoll
-    //      remaining advantages past the first each add 2 to `modFromAdvantages`
-    // if there are any remaining disadvantages, two d20s are roll()'d, then the min of the two is set as lastRoll
-    //      remaining disadvantages past the first each subract 2 to `modFromAdvantages`
-    // returns which dice were rolled, and which was chosen
-    // TODO: pull grouping functionality out of individual dice
-
-    // override roll(advantages: number = 0, disadvantages: number = 0): string {
-    // }
 }

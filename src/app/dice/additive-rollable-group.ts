@@ -13,7 +13,7 @@ export class AdditiveRollableGroup extends RollableGroup {
      * Rolls all Rollables within this group, then adds them all together.
      */
     override roll(): number {
-        let sum = -1;
+        let sum = 0;
 
         // roll all dice and collate values
         this.rollables.forEach(

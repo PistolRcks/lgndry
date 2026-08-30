@@ -4,6 +4,9 @@ import { Die, TwentySidedDie } from '../dice/die';
 import { DiceFactory } from '../dice/dice-factory';
 import { Rollable } from '../dice/rollable';
 import { Modifier } from '../dice/modifier';
+import { AdditiveRollableGroup } from '../dice/additive-rollable-group';
+import { DiceRollableGroup } from '../dice/dice-rollable-group';
+import { VantageKind, VantageRollableGroup } from '../dice/vantage-rollable-group';
 
 
 @Component({
@@ -13,44 +16,25 @@ import { Modifier } from '../dice/modifier';
     styleUrl: './dice-roller.css',
 })
 export class DiceRoller {
-    dice: Rollable[] = [
-        DiceFactory.createDie(20),
-        DiceFactory.createDie(20),
-        DiceFactory.createDie(20),
-        DiceFactory.createDie(20),
-        new Modifier(15),
-    ]
+    // aka: 2d6 + 2d20k1 + 15
+    equation: AdditiveRollableGroup = new AdditiveRollableGroup(
+        [
+            new DiceRollableGroup(2, 6),
+            new VantageRollableGroup([
+                new TwentySidedDie(),
+                new TwentySidedDie()
+            ], VantageKind.ADVANTAGE),
+            new Modifier(15)
+        ]
+    )
 
     diceOutput = signal("No dice rolled (yet)");
 
-    dieOrDice = signal(this.dice.length > 1 ? "Dice" : "Die")
+    dieOrDice = signal(this.equation.rollables.length > 1 ? "Dice" : "Die")
 
     rollDice() {
-        let first = true;
-        let output = "";
+        this.equation.roll();
 
-        this.dice.forEach(rollable => {
-            let result = String(rollable.roll());
-            if (!first) {
-                output += " + ";
-            }
-
-            if (rollable instanceof TwentySidedDie) {
-                // TODO: can't change text color. we'll adjust that when we get a die component
-                if (rollable.isCrit()) {
-                    result += ", Crit";
-                } else if (rollable.isFumble()) {
-                    result += ", Fumble";
-                }
-            }
-            output += result;
-
-            if (rollable instanceof Die) {
-                output += ` (d${rollable.sides})`;
-            }
-            first = false;
-        });
-
-        this.diceOutput.set(output);
+        this.diceOutput.set(this.equation.toString());
     }
 }

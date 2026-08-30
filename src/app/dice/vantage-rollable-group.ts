@@ -1,7 +1,7 @@
 import { Rollable } from "./rollable";
 import { RollableGroup } from "./rollable-group";
 
-enum VantageKind {
+export enum VantageKind {
     DISADVANTAGE = -1,
     ADVANTAGE = 1
 }
@@ -58,7 +58,7 @@ export class VantageRollableGroup extends RollableGroup {
         )
 
         // prepend kind
-        const kindStr = this.kind === VantageKind.ADVANTAGE ? "Advantage: " : "Disadvantage: "
+        const kindStr = this.kind === VantageKind.ADVANTAGE ? "Advantage" : "Disadvantage"
 
         // place value at the end
         return `${kindStr}: ${values.join(", ")} (${this.lastRoll})`;
