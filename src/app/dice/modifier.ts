@@ -21,4 +21,11 @@ export class Modifier implements Rollable {
     roll(): number {
         return this.value;
     }
+
+    /**
+     * @returns the value of the modifier (as a string)
+     */
+    toString(): string {
+        return String(this.value);
+    }
 }

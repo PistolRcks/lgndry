@@ -6,4 +6,9 @@ export interface Rollable {
      * "Rolls" the object, providing a random integer number.
      */
     roll(): number
+
+    /**
+     * Outputs the last rolled value of the Rollable.
+     */
+    toString(): string
 }

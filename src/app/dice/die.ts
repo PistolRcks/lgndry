@@ -31,6 +31,10 @@ export class Die implements Rollable {
         this.currentValue = Math.floor(Math.random() * this.sides) + 1;
         return this.currentValue;
     }
+
+    toString(): string {
+        return String(this.currentValue);
+    }
 }
 
 
@@ -62,6 +66,18 @@ export class TwentySidedDie extends Die {
     // returns whether or not the currentValue lies within the fumble range
     isFumble() {
         return this.currentValue <= this.fumbleRange;
+    }
+
+    override toString(): string {
+        let critState = "";
+        if (this.isCrit()) {
+            critState = " (Crit)";
+        }
+        else if (this.isFumble()) {
+            critState = " (Fumble)";
+        }
+
+        return String(this.currentValue) + critState;
     }
 
     // rolls die (with advantages/disadvantages)
