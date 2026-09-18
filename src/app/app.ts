@@ -1,13 +1,19 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DiceRoller } from "./dice-roller/dice-roller.js";
+import { InfoToolbar } from './character-sheet/info-toolbar/info-toolbar.js';
+import { DiceRoller } from './dice-roller/dice-roller.js';
+import { initFlowbite } from 'flowbite';
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet, DiceRoller],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+    selector: 'app-root',
+    imports: [RouterOutlet, InfoToolbar, DiceRoller],
+    templateUrl: './app.html',
+    styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('lgndry');
+export class App implements OnInit {
+    protected readonly title = signal('lgndry');
+
+    ngOnInit(): void {
+        initFlowbite();
+    }
 }
