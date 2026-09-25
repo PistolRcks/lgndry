@@ -1,5 +1,13 @@
 import { Rollable } from "./rollable";
 
+// how proficiency bonus gets multiplied based on skill proficiency
+export enum ProficiencyMultiplier {
+    INEPT = 0,
+    NOVICE = 0.5,
+    PROFICIENT = 1,
+    EXPERT = 2,
+}
+
 // determines a die which only modifies a roll (i.e. one whose value is always the same)
 export class Modifier implements Rollable {
     /**

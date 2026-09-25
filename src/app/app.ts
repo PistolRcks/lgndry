@@ -1,12 +1,11 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { InfoToolbar } from './character-sheet/info-toolbar/info-toolbar.js';
-import { DiceRoller } from './dice-roller/dice-roller.js';
 import { initFlowbite } from 'flowbite';
+import { CharacterSheet } from './character-sheet/character-sheet.js';
 
 @Component({
     selector: 'app-root',
-    imports: [RouterOutlet, InfoToolbar, DiceRoller],
+    imports: [RouterOutlet, CharacterSheet],
     templateUrl: './app.html',
     styleUrl: './app.css'
 })
