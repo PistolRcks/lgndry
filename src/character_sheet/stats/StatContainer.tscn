@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cy5w217xcgafo"]
+
+[ext_resource type="PackedScene" uid="uid://dtn0m35tqxxx4" path="res://src/character_sheet/stats/ProficiencyLabel.tscn" id="1_b57kl"]
+[ext_resource type="Script" uid="uid://6h52byls3avo" path="res://src/character_sheet/stats/StatContainer.gd" id="1_rrjyy"]
+
+[node name="StatContainer" type="PanelContainer" unique_id=1423846102]
+offset_right = 94.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("1_rrjyy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1387079533]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="NameLabel" type="Label" parent="HBoxContainer" unique_id=1362959159]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Stat Name"
+
+[node name="ValueLabel" type="Label" parent="HBoxContainer" unique_id=922152734]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+text = "+2"
+
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=112413246]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ProficiencyLabel" parent="HBoxContainer/Control" unique_id=643762422 instance=ExtResource("1_b57kl")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(31, 17)
+layout_mode = 1
+offset_left = -10.0
+offset_top = -11.5
+offset_right = 10.0
+offset_bottom = 11.5
+size_flags_horizontal = 8

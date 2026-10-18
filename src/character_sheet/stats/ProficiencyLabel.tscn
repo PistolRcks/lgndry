@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dtn0m35tqxxx4"]
+
+[ext_resource type="Script" uid="uid://deu0x4a6e3iiu" path="res://src/character_sheet/stats/ProficiencyLabel.gd" id="1_j31dm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b57kl"]
+bg_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 2.0
+
+[node name="ProficiencyLabel" type="Control" unique_id=643762422]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j31dm")
+
+[node name="Label" type="Label" parent="." unique_id=1586675983]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_b57kl")
+text = "Inept"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="minimum_size_changed" from="Label" to="." method="_on_label_minimum_size_changed"]

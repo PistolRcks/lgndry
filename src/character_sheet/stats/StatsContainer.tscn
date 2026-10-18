@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://c6bfx3wu8so3w"]
+
+[ext_resource type="PackedScene" uid="uid://cy5w217xcgafo" path="res://src/character_sheet/stats/StatContainer.tscn" id="1_mlncs"]
+
+[node name="StatsContainer" type="Control" unique_id=555093711]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=362099527]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1225328128]
+layout_mode = 2
+
+[node name="HeaderLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer" unique_id=1594159945]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Stats[/b]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="StatsVBox" type="VBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1728988372]
+layout_mode = 2
+
+[node name="StatContainer" parent="PanelContainer/VBoxContainer/StatsVBox" unique_id=1423846102 instance=ExtResource("1_mlncs")]
+layout_mode = 2
+size_flags_horizontal = 1
+stat_name = "Invidiousness"
+value = 1
+
+[node name="StatContainer2" parent="PanelContainer/VBoxContainer/StatsVBox" unique_id=765188268 instance=ExtResource("1_mlncs")]
+layout_mode = 2
+size_flags_horizontal = 1
+stat_name = "Puissance"
+value = -1
+proficiency = 1
+
+[node name="StatContainer3" parent="PanelContainer/VBoxContainer/StatsVBox" unique_id=1140629193 instance=ExtResource("1_mlncs")]
+layout_mode = 2
+size_flags_horizontal = 1
+stat_name = "Performance"
+value = 0
+proficiency = 2
+
+[node name="StatContainer4" parent="PanelContainer/VBoxContainer/StatsVBox" unique_id=1072809523 instance=ExtResource("1_mlncs")]
+layout_mode = 2
+size_flags_horizontal = 1
+stat_name = "Knowledge (Local)"
+value = 333
+proficiency = 3
