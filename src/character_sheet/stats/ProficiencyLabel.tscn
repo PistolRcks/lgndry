@@ -14,6 +14,7 @@ expand_margin_right = 4.0
 expand_margin_bottom = 2.0
 
 [node name="ProficiencyLabel" type="Control" unique_id=643762422]
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -22,10 +23,13 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_j31dm")
 
 [node name="Label" type="Label" parent="." unique_id=1586675983]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,7 +39,7 @@ grow_vertical = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_b57kl")
-text = "Inept"
+text = "I"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -23,10 +23,10 @@ var color_per_kind: Dictionary[ProficiencyKind, Color] = {
 }
 
 var text_per_kind: Dictionary[ProficiencyKind, String] = {
-	ProficiencyKind.INEPT:			"Inept",
-	ProficiencyKind.NOVICE:			"Novice",
-	ProficiencyKind.PROFICIENT:		"Proficient",
-	ProficiencyKind.EXPERT:			"Expert",
+	ProficiencyKind.INEPT:			"I",
+	ProficiencyKind.NOVICE:			"N",
+	ProficiencyKind.PROFICIENT:		"P",
+	ProficiencyKind.EXPERT:			"E",
 }
 
 @export var kind: ProficiencyKind = ProficiencyKind.INEPT:

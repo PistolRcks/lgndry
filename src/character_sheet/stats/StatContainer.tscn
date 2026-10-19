@@ -27,13 +27,13 @@ size_flags_horizontal = 8
 text = "+2"
 
 [node name="Control" type="Control" parent="HBoxContainer" unique_id=112413246]
-custom_minimum_size = Vector2(64, 0)
+custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 
 [node name="ProficiencyLabel" parent="HBoxContainer/Control" unique_id=643762422 instance=ExtResource("1_b57kl")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(31, 17)
+custom_minimum_size = Vector2(4, 17)
 layout_mode = 1
 offset_left = -10.0
 offset_top = -11.5
